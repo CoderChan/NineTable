@@ -31,6 +31,7 @@
 		3B1F03221EF3BE0500154E4A /* PayOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F03211EF3BE0500154E4A /* PayOrderView.m */; };
 		3B2FE3DF1EE158B8006E7045 /* MobanInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FE3DE1EE158B8006E7045 /* MobanInfoModel.m */; };
 		3B31B60B1EFA1045009F34F6 /* NormalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B31B60A1EFA1045009F34F6 /* NormalWebViewController.m */; };
+		3B31B64D1EFA6CF0009F34F6 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B31B64C1EFA6CF0009F34F6 /* UIView+Toast.m */; };
 		3B332ED01EF7A630004B2135 /* CateIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B332ECF1EF7A630004B2135 /* CateIconView.m */; };
 		3B332ED31EF7B946004B2135 /* HomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B332ED21EF7B946004B2135 /* HomeDataModel.m */; };
 		3B332ED61EF7BA7F004B2135 /* LunbotuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B332ED51EF7BA7F004B2135 /* LunbotuModel.m */; };
@@ -210,6 +211,8 @@
 		3B2FE3DE1EE158B8006E7045 /* MobanInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobanInfoModel.m; sourceTree = "<group>"; };
 		3B31B6091EFA1045009F34F6 /* NormalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalWebViewController.h; sourceTree = "<group>"; };
 		3B31B60A1EFA1045009F34F6 /* NormalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalWebViewController.m; sourceTree = "<group>"; };
+		3B31B64B1EFA6CF0009F34F6 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		3B31B64C1EFA6CF0009F34F6 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		3B332ECE1EF7A630004B2135 /* CateIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CateIconView.h; sourceTree = "<group>"; };
 		3B332ECF1EF7A630004B2135 /* CateIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CateIconView.m; sourceTree = "<group>"; };
 		3B332ED11EF7B946004B2135 /* HomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModel.h; sourceTree = "<group>"; };
@@ -813,6 +816,8 @@
 			isa = PBXGroup;
 			children = (
 				3B5E0B481ED27BEB00424D46 /* Foundation+Log.m */,
+				3B31B64B1EFA6CF0009F34F6 /* UIView+Toast.h */,
+				3B31B64C1EFA6CF0009F34F6 /* UIView+Toast.m */,
 				3B5E0B491ED27BEB00424D46 /* NSString+Category.h */,
 				3B5E0B4A1ED27BEB00424D46 /* NSString+Category.m */,
 				3B5E0B4B1ED27BEB00424D46 /* UIBarButtonItem+Extension.h */,
@@ -1538,6 +1543,7 @@
 				3B5A47491EDFEDCA00511A04 /* ForgetPassViewController.m in Sources */,
 				3B3FE98D1ED682A1005C4922 /* HTTPManager.m in Sources */,
 				3B036EF41EE512F200A5B89C /* ManagerTeamController.m in Sources */,
+				3B31B64D1EFA6CF0009F34F6 /* UIView+Toast.m in Sources */,
 				3B5E0BBF1ED27C0F00424D46 /* DALabeledCircularProgressView.m in Sources */,
 				3B9C2C2A1EEE818000C3C393 /* PhoneViewController.m in Sources */,
 				3B5E0BC51ED27C0F00424D46 /* PYPhotosViewController.m in Sources */,

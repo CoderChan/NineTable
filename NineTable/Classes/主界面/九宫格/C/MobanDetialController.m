@@ -10,6 +10,15 @@
 #import "PYPhotoBrowser.h"
 #import "CMPopTipView.h"
 #import "PYPhoto.h"
+#import "UIView+Toast.h"
+#import <Social/Social.h>
+
+
+static NSString *const SLServiceTypeWechat = @"com.tencent.xin.sharetimeline";
+static NSString *const SLServiceTypeQQ = @"com.tencent.mqq.ShareExtension";
+static NSString *const SLServiceTypeAlipay = @"com.alipay.iphoneclient.ExtensionSchemeShare";
+static NSString *const SLServiceTypeSms = @"com.apple.UIKit.activity.Message";
+static NSString *const SLServiceTypeEmail = @"com.apple.UIKit.activity.Mail";
 
 @interface MobanDetialController ()
 
@@ -99,7 +108,7 @@
                 
             }else if (i == 1){
                 // 发送到朋友圈
-                [button addTarget:self action:@selector(SendToWechatAction) forControlEvents:UIControlEventTouchUpInside];
+                [button addTarget:self action:@selector(shareToWechatAction) forControlEvents:UIControlEventTouchUpInside];
                 
             }else if (i == 2){
                 // 转发提醒
@@ -114,7 +123,7 @@
         [sendButton setTitle:@"一键转发" forState:UIControlStateNormal];
         sendButton.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
         [sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [sendButton addTarget:self action:@selector(SendToWechatAction) forControlEvents:UIControlEventTouchUpInside];
+        [sendButton addTarget:self action:@selector(shareToWechatAction) forControlEvents:UIControlEventTouchUpInside];
         [sendButton setFrame:CGRectMake(30, self.view.height - 40 - 30 - 64, self.view.width - 60, 44)];
         sendButton.layer.masksToBounds = YES;
         sendButton.layer.cornerRadius = 4;
@@ -123,10 +132,55 @@
     
 }
 
-// 发送到朋友圈
+// 发送到朋友圈 SLComposeViewController
+- (void)shareToWechatAction
+{
+    
+    BOOL isAvailable = [SLComposeViewController isAvailableForServiceType:SLServiceTypeWechat];
+    if (isAvailable == NO) {
+        [MBProgressHUD showError:@"应用不支持当前平台分享"];
+        return;
+    }
+    
+    [self tipAction];
+    
+    UIPasteboard *pasted = [UIPasteboard generalPasteboard];
+    [pasted setString:self.mobanModel.template_content];
+    [MBProgressHUD showSuccess:@"已复制到剪贴板"];
+    
+    NSArray<PYPhoto *> *photoArray = self.photosView.photos;
+    
+    // 创建分享控制器
+    SLComposeViewController *composeVc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeWechat];
+    
+    for (int i = 0; i < photoArray.count; i++) {
+        PYPhoto *photo = photoArray[i];
+        UIImage *image = photo.thumbnailImage;
+        [composeVc addImage:image];
+    }
+    
+    
+    [self presentViewController:composeVc animated:YES completion:^{
+        
+    }];
+    composeVc.completionHandler = ^(SLComposeViewControllerResult reulst) {
+        if (reulst == SLComposeViewControllerResultDone) {
+            [MBProgressHUD showSuccess:@"分享成功"];
+        } else {
+            [MBProgressHUD showError:@"分析失败"];
+        }
+    };
+    
+    
+}
+
+
+// 发送到朋友圈 UIActivityViewController
 - (void)SendToWechatAction
 {
     [self tipAction];
+    
+    
     
     UIPasteboard *pasted = [UIPasteboard generalPasteboard];
     [pasted setString:self.mobanModel.template_content];
