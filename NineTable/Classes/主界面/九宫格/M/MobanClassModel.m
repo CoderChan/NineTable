@@ -1,0 +1,18 @@
+//
+//  MobanClassModel.m
+//  NineTable
+//
+//  Created by Chan_Sir on 2017/6/1.
+//  Copyright © 2017年 陈振超. All rights reserved.
+//
+
+#import "MobanClassModel.h"
+
+@implementation MobanClassModel
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
+}
+
+@end
